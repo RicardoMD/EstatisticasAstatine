@@ -30,7 +30,8 @@ if (isset($_GET['verificar'])=='verificar') {
             $tabela13 = new tabela();
             $tabela14 = new tabela();
             $tabela15 = new tabela();
-
+            $tabela16 = new tabela();
+            $tabela17 = new tabela();
 
             echo "<table><tr>";
             echo "<br/><br/><br/>";
@@ -42,36 +43,40 @@ if (isset($_GET['verificar'])=='verificar') {
             echo "<div class='coluna quadrupla'>";
             echo "<table align='center' class=\"celulas\" border='1' width='600' cellpadding=\"3\" cellspacing=\"0\">";
             echo "<tr>";
-            echo "<td rowspan='15'><img src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
+            echo "<td rowspan='17'><img src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
             $tabela1->gerarPlayerFloat("Money", "SELECT username,balance FROM iConomy WHERE username ='$player'");
             echo "<tr>";
-            $tabela2->gerarPlayerTab("Domador", "SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela17->gerarPlayerTab("Registrou-se em", "SELECT nick, last_login FROM `ast_auth_multi` WHERE nick='$player' LIMIT 1");
             echo "<tr>";
-            $tabela3->gerarPlayerTab("Mineração", "SELECT mcmmo_users.user,mcmmo_skills.mining FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela16->gerarPlayerTab("Qtde de Logins", "SELECT nick, Count(last_login) AS Total FROM ast_auth_multi WHERE nick='$player'");
             echo "<tr>";
-            $tabela4->gerarPlayerTab("Lenhador", "SELECT mcmmo_users.user,mcmmo_skills.woodcutting FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela2->gerarPlayerTab("Nível na Skill Domador", "SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela5->gerarPlayerTab("Reparação", "SELECT mcmmo_users.user,mcmmo_skills.repair FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela3->gerarPlayerTab("Nível na Skill Mineração", "SELECT mcmmo_users.user,mcmmo_skills.mining FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela6->gerarPlayerTab("Desarmado", "SELECT mcmmo_users.user,mcmmo_skills.unarmed FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela4->gerarPlayerTab("Nível na Skill Lenhador", "SELECT mcmmo_users.user,mcmmo_skills.woodcutting FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela7->gerarPlayerTab("Herbalismo", "SELECT mcmmo_users.user,mcmmo_skills.herbalism FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela5->gerarPlayerTab("Nível na Skill Reparação", "SELECT mcmmo_users.user,mcmmo_skills.repair FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela8->gerarPlayerTab("Escavação", "SELECT mcmmo_users.user,mcmmo_skills.excavation FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela6->gerarPlayerTab("Nível na Skill Desarmado", "SELECT mcmmo_users.user,mcmmo_skills.unarmed FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela9->gerarPlayerTab("Arqueiro", "SELECT mcmmo_users.user,mcmmo_skills.archery FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela7->gerarPlayerTab("Nível na Skill Herbalismo", "SELECT mcmmo_users.user,mcmmo_skills.herbalism FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela10->gerarPlayerTab("Espadas", "SELECT mcmmo_users.user,mcmmo_skills.swords FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela8->gerarPlayerTab("Nível na Skill Escavação", "SELECT mcmmo_users.user,mcmmo_skills.excavation FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela11->gerarPlayerTab("Machado", "SELECT mcmmo_users.user,mcmmo_skills.axes FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela9->gerarPlayerTab("Nível na Skill Arqueiro", "SELECT mcmmo_users.user,mcmmo_skills.archery FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela12->gerarPlayerTab("Acrobacia", "SELECT mcmmo_users.user,mcmmo_skills.acrobatics FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela10->gerarPlayerTab("Nível na Skill Espadas", "SELECT mcmmo_users.user,mcmmo_skills.swords FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela13->gerarPlayerTab("Pescaria", "SELECT mcmmo_users.user,mcmmo_skills.fishing FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela11->gerarPlayerTab("Nível na Skill Machado", "SELECT mcmmo_users.user,mcmmo_skills.axes FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela14->gerarPlayerTab("Alquimia", "SELECT mcmmo_users.user,mcmmo_skills.alchemy FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            $tabela12->gerarPlayerTab("Nível na Skill Acrobacia", "SELECT mcmmo_users.user,mcmmo_skills.acrobatics FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
-            $tabela15->gerarPlayerTab("Total", "SELECT mcmmo_users.user,( mcmmo_skills.taming + mcmmo_skills.mining
+            $tabela13->gerarPlayerTab("Nível na Skill Pescaria", "SELECT mcmmo_users.user,mcmmo_skills.fishing FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            echo "<tr>";
+            $tabela14->gerarPlayerTab("Nível na Skill Alquimia", "SELECT mcmmo_users.user,mcmmo_skills.alchemy FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
+            echo "<tr>";
+            $tabela15->gerarPlayerTab("Total nas Skills", "SELECT mcmmo_users.user,( mcmmo_skills.taming + mcmmo_skills.mining
          + mcmmo_skills.woodcutting
          + mcmmo_skills.repair + mcmmo_skills.unarmed
          + mcmmo_skills.alchemy

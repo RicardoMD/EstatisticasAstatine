@@ -33,8 +33,10 @@ include "inc/tabelas.php";
  $tabela13=new tabela();
  $tabela14=new tabela();
  $tabela15=new tabela();
+ $tabela16=new tabela();
 echo "<table><tr>";
 $tabela1->gerarTabelaFloat("Mais Ricos","","Nome","Astatos","SELECT username,balance FROM iConomy ORDER BY balance DESC LIMIT 10");
+$tabela16->gerarTabela("Mais Conectou","","Nome","Quantidade","SELECT nick, Count(last_login) AS Total FROM ast_auth_multi GROUP BY nick ORDER BY Total DESC LIMIT 10;");
 $tabela2->gerarTabela("Skills Geral","","Nome","Nível","SELECT mcmmo_users.user,( mcmmo_skills.taming + mcmmo_skills.mining
          + mcmmo_skills.woodcutting
          + mcmmo_skills.repair + mcmmo_skills.unarmed
@@ -44,7 +46,7 @@ $tabela2->gerarTabela("Skills Geral","","Nome","Nível","SELECT mcmmo_users.user
          + mcmmo_skills.archery + mcmmo_skills.swords
          + mcmmo_skills.axes + mcmmo_skills.acrobatics
          + mcmmo_skills.fishing ) AS power_total FROM mcmmo_users INNER JOIN  mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER BY power_total DESC LIMIT 10");
-$tabela3->gerarTabela("Domador","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.taming DESC LIMIT 10");
+
 $tabela4->gerarTabela("Mineração","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.mining FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.mining DESC LIMIT 10");
 
 echo "</tr></table>";
@@ -65,6 +67,7 @@ echo "<table><tr>";
 $tabela13->gerarTabela("Acrobacia","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.acrobatics FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.acrobatics DESC LIMIT 10");
 $tabela14->gerarTabela("Pescaria","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.fishing FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.fishing DESC LIMIT 10");
 $tabela15->gerarTabela("Alquimia","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.alchemy FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.alchemy DESC LIMIT 10");
+$tabela3->gerarTabela("Domador","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.taming DESC LIMIT 10");
 echo "</tr></table>";
 
 

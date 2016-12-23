@@ -13,3 +13,5 @@ if (!$link) {
     echo "Erro na conexão" . mysqli_errno($link);
     exit();
 }
+
+$page_title='Estatísticas Astatine Chernobyl';

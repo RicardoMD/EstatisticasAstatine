@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h2> Estatísticas - Astatine Chernobyl</h2><br/>
-<div id="search">
- <h5>Verifique as estatísticas de um jogador</h5>
- <form action="inc/player.php" method="get" enctype="multipart/form-data">
-  <input type="text" name="player" id="player" placeholder="Nick do Player"><br/><br/>
-  <input type="submit" name="verificar" value="verificar"><br/>
-
- </form>
-</div>
 <?php
+
+echo "<html lang=\"en\">";
+echo "<head>";
+echo "<title>Estatísticas Astatine</title>";
+echo "<link href='css/bootstrap.css' rel='stylesheet'>";
+echo "<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'>";
+echo "<link href='css/style.css' rel='stylesheet'>";
+echo "<link href='https://fonts.googleapis.com/css?family=Lakki+Reddy' rel='stylesheet'>";
+echo "</head>";
+echo "<body>";
+echo "<h1>Estatísticas - Astatine Chernobyl</h1>";
+echo "<br/><br/>";
+echo"<form action='inc/player.php' method='get' enctype='multipart/form-data' class='form-horizontal'>
+<legend>Verificar as Estatísticas de um Jogador</legend>
+<div class='form-group'>
+  <label class='col-md-4 control-label' for='player'></label>
+  <div class='col-md-4'>
+  <input id='player' name='player' type='text' placeholder='Nick do jogador' class='form-control input-md' required=''>
+  </div>
+</div>
+<div class='form-group'>
+  <label class='col-md-4 control-label' for='player'></label>
+  <div class='col-md-4 text-center'>
+    <button type='submit' name='verificar' value='Verificar' class='btn btn-primary'>Verificar</button>
+  </div>
+</div>
+
+</form><hr><br/>";
+
+
 header("Content-Type: text/html; charset=UTF-8", true);
 
 include "inc/tabelas.php";
@@ -69,15 +83,6 @@ $tabela14->gerarTabela("Pescaria","","Nome","Nível","SELECT mcmmo_users.user,mc
 $tabela15->gerarTabela("Alquimia","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.alchemy FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.alchemy DESC LIMIT 10");
 $tabela3->gerarTabela("Domador","","Nome","Nível","SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id ORDER by mcmmo_skills.taming DESC LIMIT 10");
 echo "</tr></table>";
-
-
-
-
-
-
-
-
+include "./inc/_footer.inc.php";
 ?>
 
-</body>
-</html>

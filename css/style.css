@@ -1,0 +1,27 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    margin-left: 15px;
+}
+
+legend{
+    text-align: center;
+    font-size: 16px;
+}
+
+.table-striped{
+    padding:5px 10px 5px 5px;
+    width: 300px;
+}
+
+#tabelapl{
+    width: 600px;
+}
+
+.titulotabela{
+   font-weight: bold;
+
+}

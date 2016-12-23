@@ -1,8 +1,10 @@
-
 <?php
-header("Content-Type: text/html; charset=UTF-8", true);
+include "_header.inc.php";
 include "tabelas.php";
 include "conexao.php";
+
+header("Content-Type: text/html; charset=UTF-8", true);
+
 if (isset($_GET['verificar'])=='verificar') {
     $player = $_GET['player'];
 
@@ -33,18 +35,14 @@ if (isset($_GET['verificar'])=='verificar') {
             $tabela16 = new tabela();
             $tabela17 = new tabela();
 
-            echo "<table><tr>";
-            echo "<br/><br/><br/>";
-            echo "<div align='center' class='teste'>";
-            echo "<div class='coluna dupla'></div>";
-            echo "<div class='coluna quadrupla'>";
+            echo "<div align='center'>";
+            echo "<div>";
             echo "<p style='font-size: 20px'><strong>Jogador: </strong>" . $player . "</p>";
             echo "</div>";
-            echo "<div class='coluna quadrupla'>";
-            echo "<table align='center' class=\"celulas\" border='1' width='600' cellpadding=\"3\" cellspacing=\"0\">";
+            echo "<table border='2' class='table-striped' id='tabelapl'>";
             echo "<tr>";
-            echo "<td rowspan='17'><img src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
-            $tabela1->gerarPlayerFloat("Money", "SELECT username,balance FROM iConomy WHERE username ='$player'");
+            echo "<td rowspan='17'><img style='padding-left: 23px;' src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
+            $tabela1->gerarPlayerFloat("Astatos", "SELECT username,balance FROM iConomy WHERE username ='$player'");
             echo "<tr>";
             $tabela17->gerarPlayerTab("Registrou-se em", "SELECT nick, last_login FROM `ast_auth_multi` WHERE nick='$player' LIMIT 1");
             echo "<tr>";
@@ -98,4 +96,5 @@ if (isset($_GET['verificar'])=='verificar') {
 }
 echo "<br/><br/>";
 echo "<div align='center'> <a style='color: blue; font-size: 16px;' href='../index.php'>Voltar</a></div>";
+include "_footer.inc.php";
 ?>

@@ -27,13 +27,13 @@ class tabela {
 
 
           echo "<td style='padding: 16px;'>";
-          echo "<table border='1' width='300' cellpadding=\"3\" cellspacing=\"0\" >";
-          echo "<div align='center'> Top 10 - $tit </div>";
+          echo "<table border='2' class=\"table table-striped\" >";
+          echo "<div align='center' class='titulotabela'> Top 10 - $tit </div>";
           echo "<tr style='text-align: center;'><td>$c_0</td><td><strong>".$c1."</strong></td><td><strong>".$c2."</strong></td></tr>";
           $i=1;
           while (mysqli_stmt_fetch($stmt)) {
 
-                  echo "<tr><td style='text-align: center'>$i º</td><td><img style='vertical-align: middle; padding-right: 10px; padding-left: 5px;' src='http://cravatar.eu/head/$nome/128.png' width='32' height='32'>   <a style='color: blue' name='player' href='inc/player.php?player=$nome&verificar=verificar''>$nome</a>  </td><td style='text-align: center'>$balance</td>";
+                  echo "<tr><td style='text-align: center'>$i º</td><td><img style='vertical-align: middle; padding:5px 10px 5px 5px;' src='http://cravatar.eu/head/$nome/128.png' width='32' height='32'>   <a style='color: blue' name='player' href='inc/player.php?player=$nome&verificar=verificar''>$nome</a>  </td><td style='text-align: center'>$balance</td>";
               $i++;
           }
 
@@ -61,8 +61,8 @@ class tabela {
 
             while (mysqli_stmt_fetch($stmt)) {
 
-                echo "  <td>$tit</td>";
-                echo "  <td>$balance</td>";
+                echo "  <td style='padding-left: 5px;'>$tit</td>";
+                echo "  <td style='padding-left: 5px;'>$balance</td>";
                 echo "</tr>";
 
             }
@@ -91,8 +91,8 @@ class tabela {
 
             while (mysqli_stmt_fetch($stmt)) {
 
-                echo "  <td>$tit</td>";
-                printf("  <td>%2.2f</td>",$balance);
+                echo "  <td style='padding-left: 5px;'>$tit</td>";
+                printf("  <td style='padding-left: 5px;'>%2.2f</td>",$balance);
                 echo "</tr>";
 
             }
@@ -121,13 +121,13 @@ class tabela {
 
 
             echo "<td style='padding: 16px;'>";
-            echo "<table border='1' width='300' cellpadding=\"3\" cellspacing=\"0\" >";
-            echo "<div align='center'> Top 10 - $tit </div>";
+            echo "<table border='2' class=\"table table-striped\">";
+            echo "<div align='center' class='titulotabela'> Top 10 - $tit </div>";
             echo "<tr style='text-align: center;'><td>$c_0</td><td><strong>".$c1."</strong></td><td><strong>".$c2."</strong></td></tr>";
             $i=1;
             while (mysqli_stmt_fetch($stmt)) {
 
-                echo "<tr><td style='text-align: center'>$i º</td><td><img style='vertical-align: middle; padding-right: 10px; padding-left: 5px;' src='http://cravatar.eu/head/$nome/128.png' width='32' height='32'>   <a style='color: blue' name='player' href='inc/player.php?player=$nome&verificar=verificar''>$nome</a>  </td>";
+                echo "<tr><td style='text-align: center'>$i º</td><td><img style='vertical-align: middle; padding:5px 10px 5px 5px;' src='http://cravatar.eu/head/$nome/128.png' width='32' height='32'>   <a style='color: blue' name='player' href='inc/player.php?player=$nome&verificar=verificar''>$nome</a>  </td>";
                 printf("<td style='text-align: center'>%2.2f</td>",$balance);
                 $i++;
             }

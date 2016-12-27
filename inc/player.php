@@ -54,7 +54,7 @@ if (isset($_GET['verificar'])=='verificar') {
             echo "</div>";
             echo "<table border='2' class='table-responsive' id='tabelapl'><thead></thead><tbody>";
             echo "<tr>";
-            echo "<td rowspan='18'><p class='nick'>Nick : $player</p><img style='padding-left: 23px; padding-top: 30px;' src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
+            echo "<td rowspan='18'><p class='nick'>Nick : $player</p><img style='padding-left: 10px; padding-top: 30px;' src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
             $tabela1->gerarPlayerFloat("Astatos", "SELECT username,balance FROM iConomy WHERE username ='$player'");
             echo "<tr>";
             $tabela17->gerarPlayerTab("Registrou-se em", "SELECT nick, last_login FROM ast_auth_multi WHERE nick='$player' LIMIT 1");

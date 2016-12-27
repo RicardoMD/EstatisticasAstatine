@@ -61,7 +61,7 @@ class tabela {
 
             while (mysqli_stmt_fetch($stmt)) {
 
-                echo "  <td style='padding-left: 5px;'>$tit</td>";
+                echo "  <td style='padding-left: 5px;'><strong>$tit</strong></td>";
                 echo "  <td style='padding-left: 5px;'>$balance</td>";
                 echo "</tr>";
 
@@ -91,7 +91,7 @@ class tabela {
 
             while (mysqli_stmt_fetch($stmt)) {
 
-                echo "  <td style='padding-left: 5px;'>$tit</td>";
+                echo "  <td style='padding-left: 5px;'><strong>$tit</strong></td>";
                 echo "<td style='padding-left: 5px;'>".number_format($balance,2,",",".")."</td>";
                 echo "</tr>";
 
@@ -211,7 +211,7 @@ class tabela {
                 $minutes = floor(($time - ($days*24*60*60)-($hours*60*60)) / 60);
                 $seconds = ($time - ($days*24*60*60) - ($hours*60*60) - ($minutes*60)) % 60;
 
-                echo "  <td style='padding-left: 5px;'>$tit</td>";
+                echo "  <td style='padding-left: 5px;'><strong>$tit</strong></td>";
                 echo "<td>".$days."d "."$hours". "h " ."$minutes". "m "."</td>";
                 echo "</tr>";
 

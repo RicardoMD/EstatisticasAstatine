@@ -1,5 +1,16 @@
 <?php
-include "_header.inc.php";
+echo "<html lang=\"en\">";
+echo "<head>";
+echo "<title>Estatísticas Astatine</title>";
+echo "<link href='../css/bootstrap.css' rel='stylesheet'>";
+echo "<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'>";
+echo "<link href='../css/style.css' rel='stylesheet'>";
+echo "<link href='https://fonts.googleapis.com/css?family=Lakki+Reddy' rel='stylesheet'>";
+echo "</head>";
+echo "<body>";
+echo "<div class='logotipo' align='center'><img style='text-align: center' src='../imagens/teste2.jpg'></div>";
+
+
 include "tabelas.php";
 include "conexao.php";
 
@@ -34,19 +45,23 @@ if (isset($_GET['verificar'])=='verificar') {
             $tabela15 = new tabela();
             $tabela16 = new tabela();
             $tabela17 = new tabela();
+            $tabela18 = new tabela();
+
 
             echo "<div align='center'>";
             echo "<div>";
-            echo "<p style='font-size: 20px'><strong>Jogador: </strong>" . $player . "</p>";
+            echo "";
             echo "</div>";
-            echo "<table border='2' class='table-striped' id='tabelapl'>";
+            echo "<table border='2' class='table-responsive' id='tabelapl'><thead></thead><tbody>";
             echo "<tr>";
-            echo "<td rowspan='17'><img style='padding-left: 23px;' src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
+            echo "<td rowspan='18'><p class='nick'>Nick : $player</p><img style='padding-left: 23px; padding-top: 30px;' src='http://www.minecraft-skin-viewer.net/3d.php?layers=true&aa=false&a=0&w=0&wt=10&abg=330&abd=40&ajg=340&ajd=20&ratio=13&format=png&login=$player&headOnly=false&displayHairs=true&randomness=309'></td>";
             $tabela1->gerarPlayerFloat("Astatos", "SELECT username,balance FROM iConomy WHERE username ='$player'");
             echo "<tr>";
-            $tabela17->gerarPlayerTab("Registrou-se em", "SELECT nick, last_login FROM `ast_auth_multi` WHERE nick='$player' LIMIT 1");
+            $tabela17->gerarPlayerTab("Registrou-se em", "SELECT nick, last_login FROM ast_auth_multi WHERE nick='$player' LIMIT 1");
             echo "<tr>";
             $tabela16->gerarPlayerTab("Qtde de Logins", "SELECT nick, Count(last_login) AS Total FROM ast_auth_multi WHERE nick='$player'");
+            echo "<tr>";
+            $tabela18->gerarPlayerTempo("Tempo Online","SELECT nick,time_online FROM ast_auth WHERE nick='$player'");
             echo "<tr>";
             $tabela2->gerarPlayerTab("Nível na Skill Domador", "SELECT mcmmo_users.user,mcmmo_skills.taming FROM mcmmo_users INNER JOIN mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
             echo "<tr>";
@@ -83,18 +98,18 @@ if (isset($_GET['verificar'])=='verificar') {
          + mcmmo_skills.archery + mcmmo_skills.swords
          + mcmmo_skills.axes + mcmmo_skills.acrobatics
          + mcmmo_skills.fishing ) AS power_total FROM mcmmo_users INNER JOIN  mcmmo_skills ON mcmmo_users.id = mcmmo_skills.user_id WHERE mcmmo_users.user='$player'");
-            echo "</table>";
+            echo "</tbody></table>";
             echo "</div>";
             echo "</tr></table>";
 
         }else{
-            echo " O jogador $player não possuí conta registrada no servidor Chernobyl";
+            echo "<h3> O jogador $player não possuí conta registrada no servidor Chernobyl</h3>";
         }
     }
 
 
 }
 echo "<br/><br/>";
-echo "<div align='center'> <a style='color: blue; font-size: 16px;' href='../index.php'>Voltar</a></div>";
+echo "<div align='center'> <a class='voltar' href='../index.php'>Voltar</a></div>";
 include "_footer.inc.php";
 ?>

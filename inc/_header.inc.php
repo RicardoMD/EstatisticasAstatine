@@ -11,4 +11,6 @@ include "conexao.php";
     echo "<link href='https://fonts.googleapis.com/css?family=Lakki+Reddy' rel='stylesheet'>";
     echo "</head>";
     echo "<body>";
-    echo "<h1>".$page_title."</h1>";
+echo "<div class='logotipo' align='center'><img style='text-align: center' src='imagens/teste.jpg'></div> <div style='float: right;' class='voto'><script src=\"http://minecraft-mp.com/embed.js?id=140747&type=votes&size=normal\"></script></div> ";
+
+echo "<h1>Estatísticas - Servidor Chernobyl</h1>";

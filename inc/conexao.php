@@ -14,4 +14,3 @@ if (!$link) {
     exit();
 }
 
-$page_title='Estatísticas Astatine Chernobyl';

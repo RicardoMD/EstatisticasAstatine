@@ -13,8 +13,14 @@ echo "<div class='logotipo' align='center'><img style='text-align: center' src='
 
 include "tabelas.php";
 include "conexao.php";
+include "sanitize.php";
 
 header("Content-Type: text/html; charset=UTF-8", true);
+$_GET = Sanitize::filter($_GET);
+
+$_GET['verificar'] = Sanitize::filter($_GET['verificar']);
+
+$_GET['player'] = Sanitize::filter($_GET['player']);
 
 if (isset($_GET['verificar'])=='verificar') {
     $player = $_GET['player'];

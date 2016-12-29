@@ -34,6 +34,7 @@ echo"<form action='inc/player.php' method='get' enctype='multipart/form-data' cl
 
 header("Content-Type: text/html; charset=UTF-8", true);
 
+
 include "inc/tabelas.php";
  $tabela1=new tabela();
  $tabela2=new tabela();
